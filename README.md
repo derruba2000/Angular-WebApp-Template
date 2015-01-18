@@ -2,9 +2,6 @@ Travis CI - [![Build Status](https://travis-ci.org/derruba2000/Angular-WebApp-Te
 
 # Angular-WebApp-Template
 
-A Angular Front End Template
-
-
 An AngularJS Web app project template.
 
 ###Installation
@@ -16,7 +13,7 @@ Install node.js first then go to your github clone and
 
 ###For starting a local server:
 ``` shell
-$ grunt start
+$ grunt server
 ```
 
 Watch and livereload tasks configured in grunt
