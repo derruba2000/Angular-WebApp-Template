@@ -5,7 +5,7 @@
   "main": "./dist/node-server.js",
   "scripts": {
     "test": "echo Build-Finished",
-    "start": "node ./dist/node-server.js"
+    "start": "node dist/node-server.js"
   },
   "repository": {
     "type": "git",
