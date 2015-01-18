@@ -4,7 +4,7 @@
   "description": "Angular-WebApp-Template Template Front End",
   "main": "Gruntfile.js",
   "scripts": {
-    "test": "test"
+    "test": "echo Build-Finished"
   },
   "repository": {
     "type": "git",
