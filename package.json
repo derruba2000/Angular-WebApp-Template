@@ -5,7 +5,6 @@
   "main": "./dist/node-server.js",
   "scripts": {
     "test": "echo Build-Finished",
-    "postinstall": "npm install && grunt build",
     "start": "node ./dist/node-server.js"
   },
   "repository": {

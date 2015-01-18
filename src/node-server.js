@@ -5,7 +5,7 @@ var express = require('express'),
     app = express(),
     fs = require('fs');
 
-var appPort = 9000;
+app.set('port', (process.env.PORT || 9000));
 var mainTemp;
 
 console.log('Starting directory: ' + process.cwd());
@@ -31,7 +31,7 @@ app.get("*", function(req,res){
     res.end();
 });
 
-app.listen(appPort, function(){
+app.listen(app.get('port'), function(){
     console.log("Heroku webserver");  
-    console.log("Listening on port " + appPort);   
+    console.log("Listening on port " + app.get('port'));   
 });
