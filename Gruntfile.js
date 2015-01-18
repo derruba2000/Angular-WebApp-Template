@@ -33,10 +33,8 @@ module.exports = function(grunt) {
      connect: {
        options: {
             port: 9000,
-            open: true,
             base: '<%= appfolder.dist %>',
-            hostname: '0.0.0.0',
-            livereload: true
+            hostname: '0.0.0.0'
        },
        livereload: {
             options: {
@@ -62,6 +60,32 @@ module.exports = function(grunt) {
                 },
                 livereload: true
             }
+      },
+      Myapp: {
+          options: {
+            port: 9000,
+            base: '<%= appfolder.dist %>',
+            keepalive: true,
+            middleware: function(connect, options) {
+
+                    var middleware = [];
+                    // 1. mod-rewrite behavior
+                    var rules = [
+                        '!\\.html|\\.js|\\.css|\\.svg|\\.jp(e?)g|\\.png|\\.gif$ /index.html'
+                    ];
+                    middleware.push(rewrite(rules));
+
+                    // 2. original middleware behavior
+                    var base = options.base;
+                    if (!Array.isArray(base)) {
+                        base = [base];
+                    }
+                    base.forEach(function(path) {
+                        middleware.push(connect.static(path));
+                    });
+                    return middleware;
+            }
+          }
       }
     },
     karma: {
@@ -95,7 +119,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('build', ['clean', 'copy']);
-  grunt.registerTask('start', ['build','connect:livereload']);
+  grunt.registerTask('start', ['build','connect:Myapp']);
     
   grunt.registerTask('server', 'Compile and starting the web server', function (target) {
     grunt.task.run([
