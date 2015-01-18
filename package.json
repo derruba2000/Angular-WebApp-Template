@@ -5,7 +5,7 @@
   "main": "Gruntfile.js",
   "scripts": {
     "test": "echo Build-Finished",
-    "start": "grunt server"
+    "start": "grunt start"
   },
   "repository": {
     "type": "git",

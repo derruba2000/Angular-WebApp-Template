@@ -13,7 +13,7 @@ Install node.js first then go to your github clone and
 
 ###For starting a local server:
 ``` shell
-$ grunt server
+$ grunt start
 ```
 
 Watch and livereload tasks configured in grunt

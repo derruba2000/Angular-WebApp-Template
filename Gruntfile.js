@@ -39,41 +39,29 @@ module.exports = function(grunt) {
             livereload: true
        },
        livereload: {
-        options: {
-          open: true,
-         /* middleware: function (connect) {
-            return [
-              urlRewrite('<%= appfolder.dist %>', 'index.html'),
-              connect.static('.tmp'),
-              connect.static(prjConfig.dist)
-            ];
-          },*/
-        middleware: function(connect, options) {
+            options: {
+                open: true,
+                middleware: function(connect, options) {
 
-            var middleware = [];
+                    var middleware = [];
+                    // 1. mod-rewrite behavior
+                    var rules = [
+                        '!\\.html|\\.js|\\.css|\\.svg|\\.jp(e?)g|\\.png|\\.gif$ /index.html'
+                    ];
+                    middleware.push(rewrite(rules));
 
-            // 1. mod-rewrite behavior
-            var rules = [
-                '!\\.html|\\.js|\\.css|\\.svg|\\.jp(e?)g|\\.png|\\.gif$ /index.html'
-            ];
-            middleware.push(rewrite(rules));
-
-            // 2. original middleware behavior
-            var base = options.base;
-            if (!Array.isArray(base)) {
-                base = [base];
+                    // 2. original middleware behavior
+                    var base = options.base;
+                    if (!Array.isArray(base)) {
+                        base = [base];
+                    }
+                    base.forEach(function(path) {
+                        middleware.push(connect.static(path));
+                    });
+                    return middleware;
+                },
+                livereload: true
             }
-            base.forEach(function(path) {
-                middleware.push(connect.static(path));
-            });
-
-            return middleware;
-
-          },
-
-            
-          livereload: true
-        }
       }
     },
     karma: {
@@ -107,7 +95,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('build', ['clean', 'copy']);
-  grunt.registerTask('start', ['build','connect:livereload', 'watch']);
+  grunt.registerTask('start', ['build','connect:livereload']);
     
   grunt.registerTask('server', 'Compile and starting the web server', function (target) {
     grunt.task.run([
