@@ -37,5 +37,8 @@
     "grunt-karma": "^0.10.1",
     "karma": "^0.12.31",
     "protractor": "^1.6.1"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
