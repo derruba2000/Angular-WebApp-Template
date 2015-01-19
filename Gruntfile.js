@@ -103,7 +103,7 @@ module.exports = function(grunt) {
     watch: {
         src: {
             tasks: ['build'],
-            files: ['<%= appfolder.app %>/src/{,*/}*'],
+            files: ['<%= appfolder.app %>/src/**/*'],
             options: {
                 //Start a live reload server on the default port 35729
                 livereload: '<%= connect.options.livereload %>'

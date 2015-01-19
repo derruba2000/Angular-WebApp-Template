@@ -21,43 +21,40 @@
     </head>
     <body ng-app="Myapp">
       
-        
-    
-    <div class="container" ng-cloak>
-         <div id="navbar" ng-controller="headerCtrl" class="header">
-            <div ng-include src="'Main/header.html'"></div>
-         </div>
-      
-        <div class="row">
-          <div class="ui-view-container">
-              <div ui-view><!-- Add your site or application content here --></div>
-          </div>
-        </div>
-        
-        <div class="footer">
-            <p>Web app footer</p>
-        </div>
-    </div>  
-        
- 
-     <!-- Scripts -->   
-     <script type="text/javascript"> document.write("<base href='http://" + document.location.host + "' />"); </script>     
-     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>  
-        
-     <!-- Angular -->
-     <script src="node_modules/angular/angular.js"></script>
-     <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-        
-        
-     <!-- Main Module -->
-     <script src="app.js"></script>
-     <script src="app.config.js"></script>
+        <div class="container" ng-cloak>
+             <div id="navbar" ng-controller="headerCtrl" class="header">
+                <div ng-include src="'Main/header.html'"></div>
+             </div>
 
-     <!-- Mains Controller -->
-     <script src="Main/headerCtrl.js"></script>
+            <div class="row">
+              <div class="ui-view-container">
+                  <div ui-view><!-- Add your site or application content here --></div>
+              </div>
+            </div>
 
+            <div class="footer">
+                <p>Web app footer</p>
+            </div>
+        </div>  
+
+         <!-- Scripts -->   
+         <script type="text/javascript"> document.write("<base href='http://" + document.location.host + "' />"); </script>     
+         <script src="node_modules/jquery/dist/jquery.min.js"></script>
+         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>  
+
+         <!-- Angular -->
+         <script src="node_modules/angular/angular.js"></script>
+         <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+         <!-- Auth Module -->
+         <script src="Auth/auth.module.js"></script>
+         <script src="Auth/auth.config.js"></script>
+         <script src="Auth/login.js"></script>
         
-        
+         <!-- App/Main Module -->
+         <script src="app.js"></script>
+         <script src="app.config.js"></script>
+         <script src="Main/headerCtrl.js"></script>
+
     </body>
 </html>
