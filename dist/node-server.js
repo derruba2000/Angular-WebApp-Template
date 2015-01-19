@@ -27,13 +27,13 @@ fs.readFile('./index.html',function(err,data){
 app.use(express.static('./'));
 
 app.get("/", function(req,res){
-    res.writeHeader(200, {"Content-Type": "application/javascript"});
+    res.writeHeader(200);
     res.write(mainTemp);
     res.end();
 });
 
 app.get("*", function(req,res){
-    res.writeHeader(200, {"Content-Type": "text/html"});
+    res.writeHeader(200);
     res.write(mainTemp);
     res.end();
 });
