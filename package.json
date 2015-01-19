@@ -2,10 +2,10 @@
   "name": "Myapp",
   "version": "0.0.1",
   "description": "Angular-WebApp-Template Template Front End",
-  "main": "./dist/node-server.js",
+  "main": "node-server.js",
   "scripts": {
     "test": "echo Build-Finished",
-    "start": "node dist/node-server.js"
+    "start": "node node-server.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "grunt-contrib-livereload": "^0.1.2",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-karma": "^0.10.1",
+    "jquery": "^2.1.3",
     "karma": "^0.12.31",
     "protractor": "^1.6.1"
   },

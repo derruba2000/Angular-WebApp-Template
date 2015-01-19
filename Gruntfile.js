@@ -23,10 +23,12 @@ module.exports = function(grunt) {
             },{
                 expand: true,
                 cwd: '<%= appfolder.app %>',
-                src: ['lib/**', 'node_modules/angular/angular.min.js',
-                     'node_modules/angular/angular.min.js.map',
-                     'node_modules/angular-ui-router/release/angular-ui-router.min.js',
-                     'src/package.json'],
+                src: ['lib/**', 'node_modules/angular/angular.js',
+                      '.htaccess',
+                     'node_modules/angular/angular.js.map',
+                     'node_modules/jquery/dist/jquery.min.js',
+                     'node_modules/angular-ui-router/release/angular-ui-router.js',
+                     'src/package.json', 'node_modules/bootstrap/dist/**', 'package.json'],
                 dest: '<%= appfolder.dist %>'
             }]
         }
@@ -35,7 +37,7 @@ module.exports = function(grunt) {
        options: {
             port: 9000,
             base: '<%= appfolder.dist %>',
-            hostname: '0.0.0.0'
+            hostname: '127.0.0.1'
        },
        livereload: {
             options: {

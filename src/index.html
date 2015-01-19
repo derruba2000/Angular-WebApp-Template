@@ -3,22 +3,51 @@
     <head>
         <base href="/">
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
         <title>FrontEnd Template</title>
         <link rel="icon" type="image/png" href="img/icon.png">
-    </head>
-    <body ng-app="Myapp" ng-cloak>
-      <div ui-view>
-            <!-- Route dependent content goes here -->
-      </div>
         
-     
+        
+    </head>
+    <body ng-app="Myapp">
+      
+        
+    
+    <div class="container" ng-cloak>
+         <div id="navbar" ng-controller="headerCtrl" class="header">
+            <div ng-include src="'Main/header.html'"></div>
+         </div>
+      
+        <div class="row">
+          <div class="ui-view-container">
+              <div ui-view><!-- Add your site or application content here --></div>
+          </div>
+        </div>
+        
+        <div class="footer">
+            <p>Web app footer</p>
+        </div>
+    </div>  
+        
+ 
+     <!-- Scripts -->   
+     <script type="text/javascript"> document.write("<base href='http://" + document.location.host + "' />"); </script>
+     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>  
+        
      <!-- Angular -->
-     <script src="node_modules/angular/angular.min.js"></script>
-     <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+     <script src="node_modules/angular/angular.js"></script>
+     <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+        
         
      <!-- Main Module -->
      <script src="app.js"></script>
      <script src="app.config.js"></script>
+
+     <!-- Mains Controller -->
+     <script src="Main/headerCtrl.js"></script>
+
         
         
     </body>
