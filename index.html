@@ -15,7 +15,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <title>FrontEnd Template</title>
+
+        <title>WebApp FrontEnd Template</title>
         <link rel="icon" type="image/png" href="img/icon.png">
         
     </head>
@@ -33,6 +34,8 @@
             </div>
 
             <div class="footer">
+                <br>
+                <hr>
                 <p>Web app footer</p>
             </div>
         </div>  
@@ -49,9 +52,15 @@
          <!-- Auth Module -->
          <script src="Auth/auth.module.js"></script>
          <script src="Auth/auth.config.js"></script>
-         <script src="Auth/authtoken.js"></script>
-         <script src="Auth/login.js"></script>
+         <script src="Auth/services/authtoken.js"></script>
+         <script src="Auth/controllers/login.js"></script>
+         <script src="Auth/controllers/logout.js"></script>
 
+         <!-- Admin Module -->
+         <script src="Admin/admin.module.js"></script>
+         <script src="Admin/admin.config.js"></script>
+
+        
         
          <!-- App/Main Module -->
          <script src="app.js"></script>
