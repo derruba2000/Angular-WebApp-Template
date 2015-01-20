@@ -26,7 +26,7 @@ module.exports = function(grunt) {
                 src: ['lib/**', 'node_modules/angular/angular.js',
                       '.htaccess',
                      'node_modules/angular/angular.js.map',
-                     'node_modules/jquery/dist/jquery.min.js',
+                     'node_modules/jquery/dist/**',
                      'node_modules/angular-ui-router/release/angular-ui-router.js',
                      'src/package.json', 'node_modules/bootstrap/dist/**', 'package.json'],
                 dest: '<%= appfolder.dist %>'
@@ -42,26 +42,12 @@ module.exports = function(grunt) {
        livereload: {
             options: {
                 open: true,
-                middleware: function(connect, options) {
-
-                    var middleware = [];
-                    // 1. mod-rewrite behavior
-                    var rules = [
-                        '!\\.html|\\.js|\\.css|\\.svg|\\.jp(e?)g|\\.png|\\.gif$ /index.html'
+                  middleware: function (connect) {
+                    return [
+                      connect.static('.tmp'),
+                      connect.static(prjConfig.dist)
                     ];
-                    middleware.push(rewrite(rules));
-
-                    // 2. original middleware behavior
-                    var base = options.base;
-                    if (!Array.isArray(base)) {
-                        base = [base];
-                    }
-                    base.forEach(function(path) {
-                        middleware.push(connect.static(path));
-                    });
-                    return middleware;
-                },
-                livereload: true
+                  }
             }
       },
       Myapp: {

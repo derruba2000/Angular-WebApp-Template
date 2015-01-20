@@ -19,7 +19,11 @@ angular.module('Myapp.Auth').factory('authtoken', function($window, $rootScope){
     getData: function() {
       return $window.localStorage && $window.localStorage.getItem('my-storage');
     },
-    valtmp:valtmp;
+    removeData: function() {
+      $window.localStorage && $window.localStorage.removeItem('my-storage');
+       
+      return this;
+    }
   };
     
 });

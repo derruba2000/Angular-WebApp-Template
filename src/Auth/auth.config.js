@@ -4,17 +4,20 @@ angular.module('Myapp.Auth').config(function ($stateProvider, $urlRouterProvider
 
     $stateProvider
     .state('register', {
-            templateUrl: 'Auth/register.html',
+            templateUrl: 'Auth/views/register.html',
             url: '/register'
     })
     .state('login', {
-            templateUrl: 'Auth/login.html',
+            templateUrl: 'Auth/views/login.html',
             url: '/login',
             controller: 'loginCtrl'
     })
+    .state('accountsettings', {
+            templateUrl: 'Auth/views/settings.html',
+            url: '/accountsettings'
+    })
     .state('logout', {
-            templateUrl: 'Auth/logout.html',
             url: '/logout',
-            controller: 'loginCtrl'
+            controller: 'logoutCtrl'
     });
 });
