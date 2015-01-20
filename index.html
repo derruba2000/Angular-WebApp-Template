@@ -14,7 +14,8 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style/animate.css">
 
         <title>WebApp FrontEnd Template</title>
         <link rel="icon" type="image/png" href="img/icon.png">
@@ -30,6 +31,9 @@
             <div class="row">
               <div class="ui-view-container">
                   <div ui-view><!-- Add your site or  content here --></div>
+                  <div class="alert alert-{{alert.type}} animated main-alert" ng-class="{'flipInY':alert.show, 'flipOutY':!alert.show, 'alert-hidden':!alert.hasBeenShow}">    
+                    <strong>{{alert.title}}</strong>{{alert.message}}
+                  </div>
               </div>
             </div>
 
@@ -43,7 +47,7 @@
          <!-- Scripts -->   
          <script type="text/javascript"> document.write("<base href='http://" + document.location.host + "' />"); </script>     
          <script src="node_modules/jquery/dist/jquery.min.js"></script>
-         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>  
+         <script src="lib/bootstrap/js/bootstrap.min.js"></script>  
 
          <!-- Angular -->
          <script src="node_modules/angular/angular.js"></script>
@@ -53,6 +57,7 @@
          <script src="Auth/auth.module.js"></script>
          <script src="Auth/auth.config.js"></script>
          <script src="Auth/services/authtoken.js"></script>
+         <script src="Auth/services/alert.js"></script>
          <script src="Auth/controllers/login.js"></script>
          <script src="Auth/controllers/logout.js"></script>
 
