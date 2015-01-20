@@ -1,6 +1,11 @@
 'use strict';
 
-var MyappAuth = angular.module('Myapp.Auth', ['ui.router']);
+var MyappAuth = angular.module('Myapp.Auth', ['ui.router', ])
+.run(function($rootScope) {
+    $rootScope.authenticated = false;
+});
 
 
-MyappAuth.value('UserAuthenticated', false);
+
+
+

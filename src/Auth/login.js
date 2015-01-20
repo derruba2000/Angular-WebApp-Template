@@ -1,17 +1,25 @@
 'use strict';
 
 
-  angular.module('Myapp.Auth').controller('loginCtrl', function ($scope, UserAuthenticated, $provide) {
-    $scope.isAuthenticated = function(){
-            return UserAuthenticated;
-    }
-    
+  angular.module('Myapp.Auth').controller('loginCtrl', function ($scope, authtoken,$rootScope,$state) {
+
+
     $scope.Authenticate = function(){
-            UserAuthenticated=true;
-            $provide.value(UserAuthenticated,true);
-            this.value('UserAuthenticated', true);
-            console.log("User Authenticated " + UserAuthenticated);
-    }
+        $rootScope.authenticated=true;
+         authtoken.setData(true);
+         console.log("DATA2-"+authtoken.getData());
+    };
+    $scope.Logout = function(){
+        $rootScope.authenticated=false;
+        authtoken.setData(false);
+        $state.go('home');
+    };
+    
+    $scope.TMP=function(){return authtoken.getData()};
+                                          
+    $scope.contador=$rootScope.authenticated;
+ 
+   
     
     
   });

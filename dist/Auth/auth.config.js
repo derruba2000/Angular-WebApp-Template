@@ -14,6 +14,7 @@ angular.module('Myapp.Auth').config(function ($stateProvider, $urlRouterProvider
     })
     .state('logout', {
             templateUrl: 'Auth/logout.html',
-            url: '/logout'
+            url: '/logout',
+            controller: 'loginCtrl'
     });
 });

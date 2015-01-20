@@ -1,22 +1,29 @@
 'use strict';
 
 
-  angular.module('Myapp').controller('headerCtrl', function ($scope, UserAuthenticated) {
+  angular.module('Myapp').controller('headerCtrl', function ($scope, authtoken, $rootScope) {
     
-    $scope.Authenticated = { value : UserAuthenticated};  
-      
-    $scope.isAuthenticated = function(){
-            return $scope.Authenticated;
-    }
+ 
+    $scope.isAuthenticated=function(){
+       return authtoken.getData();
+    };
+    $scope.ver=false; 
     
-    
-    $scope.$watch(
-        'UserAuthenticated',
-        function(){
-             $scope.Authenticated = UserAuthenticated;
-             console.log("Header " + $scope.Authenticated);
+ $scope.$watch(function () { return authtoken.getData; },
+                function (value) {
+                    console.log("In $watch - bla:" + value() + "-" + $scope.teste );
+                   
+                    if (value() == true){
+                        $scope.teste = true;
+                        
+                    }else{
+                        $scope.teste = null;
+                    }
 
-        }, true
-    );
+                }
+            );      
+      
+  $scope.teste= false;
     
+      
   });
